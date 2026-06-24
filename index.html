@@ -1,1 +1,1332 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyya | Feminine Blue Web3 Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Zeyya - Web3 Enthusiast, Moderator, Researcher & Content Creator. Temukan perjalanan kontribusi, keahlian, dan aktivitas Web3 Zeyya di sini.">
+    <meta name="keywords" content="Zeyya, Web3, Portfolio, Moderator, Community Management, OG, Discord, Crypto, Indonesia">
+    <meta name="author" content="Zeyya">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#060a17',
+                            800: '#0b132b',
+                            700: '#1c2541',
+                        },
+                        sky: {
+                            300: '#7ed6df',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                        },
+                        ice: {
+                            100: '#f0f9ff',
+                            200: '#e0f2fe',
+                            300: '#bae6fd',
+                            400: '#7dd3fc',
+                        },
+                        purpleAccent: '#9d4edd',
+                    },
+                    backgroundImage: {
+                        'sakura-pattern': 'radial-gradient(circle at 50% 50%, rgba(11, 19, 43, 0.8) 0%, rgba(6, 10, 23, 1) 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans for premium modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style for Special FX -->
+    <style>
+        * {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
 
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(11, 19, 43, 0.45);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(28, 37, 65, 0.35);
+            backdrop-filter: blur(12px) saturate(140%);
+            -webkit-backdrop-filter: blur(12px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            background: rgba(28, 37, 65, 0.55);
+            border-color: rgba(96, 165, 250, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.3),
+                        inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-nav {
+            background: rgba(6, 10, 23, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animated Soft Gradient Background */
+        body {
+            background: #060a17;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-glow-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-glow-1 {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(157, 78, 221, 0.02) 60%, transparent 100%);
+            top: -200px;
+            left: -200px;
+            animation: floatGlow 25s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.08) 0%, rgba(96, 165, 250, 0.02) 60%, transparent 100%);
+            bottom: -100px;
+            right: -100px;
+            animation: floatGlow 20s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 80px) scale(1.1); }
+            100% { transform: translate(-50px, -50px) scale(0.9); }
+        }
+
+        /* Sakura Petals Canvas & Floating Particles */
+        #sakura-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Neon Glow Utility */
+        .neon-text-glow {
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.6), 0 0 20px rgba(96, 165, 250, 0.2);
+        }
+        
+        .neon-btn-glow:hover {
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+            border-color: rgba(96, 165, 250, 0.8);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060a17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c2541;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* Active Nav Link Marker */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #60a5fa;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth Floating PFP styling & Custom Morphing Glow Animation */
+        .pfp-border {
+            position: relative;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.8), rgba(157, 78, 221, 0.8));
+            padding: 4px;
+            border-radius: 50%;
+            animation: floatAvatar 6s ease-in-out infinite, morphGlow 8s ease-in-out infinite;
+            transition: all 0.5s ease-in-out;
+        }
+
+        @keyframes floatAvatar {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes morphGlow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(96, 165, 250, 0.5), 0 0 60px rgba(157, 78, 221, 0.2);
+                border-color: rgba(96, 165, 250, 0.8);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(96, 165, 250, 0.8), 0 0 90px rgba(157, 78, 221, 0.6);
+                border-color: rgba(157, 78, 221, 0.8);
+            }
+        }
+
+        /* Animated Logo Text Shifting Gradient */
+        .animated-logo-text {
+            background: linear-gradient(270deg, #ffffff, #bae6fd, #60a5fa, #9d4edd, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Loading Screen Transition */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #060a17;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+        }
+        
+        #loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Interactive Card Tag Glow */
+        .tag-glow-og {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+        }
+
+        .tag-glow-mod {
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            color: #d8b4fe;
+        }
+    </style>
+</head>
+<body class="text-slate-200">
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="relative flex flex-col items-center">
+            <!-- Animated Blue Sakura Icon -->
+            <div class="w-24 h-24 relative mb-6 animate-pulse">
+                <svg viewBox="0 0 100 100" class="w-full h-full text-ice-400 fill-current opacity-80 filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]">
+                    <path d="M50 15 C45 35 25 35 25 50 C25 65 45 65 50 85 C55 65 75 65 75 50 C75 35 55 35 50 15 Z" />
+                    <path d="M50 25 C47 40 35 40 35 50 C35 60 47 60 50 75 C53 60 65 60 65 50 C65 40 53 40 50 25 Z" class="text-sky-300 opacity-90"/>
+                    <circle cx="50" cy="50" r="5" class="text-white"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-ice-200 to-purpleAccent neon-text-glow">
+                Z E Y Y A
+            </h1>
+            <p class="text-xs text-sky-400 mt-2 tracking-wide font-light animate-bounce">Entering Web3 Space...</p>
+            
+            <div class="w-48 h-[2px] bg-navy-700 rounded-full mt-6 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-sky-400 to-purpleAccent w-0 animate-[loadingBar_2s_ease-out_forwards]"></div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        @keyframes loadingBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    </style>
+
+    <!-- Canvas for Floating Blue Sakura & Particles -->
+    <canvas id="sakura-canvas"></canvas>
+
+    <!-- Background Glows -->
+    <div class="bg-glow-container">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-700 px-6 lg:px-16 py-4 mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-tr from-sky-400 to-purple-600 p-[1px] shadow-lg shadow-sky-500/20 group-hover:scale-110 transition-all duration-350">
+                    <div class="w-full h-full bg-navy-900 rounded-full flex items-center justify-center">
+                        <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-ice-100 text-sm">Z</span>
+                    </div>
+                </div>
+                <span class="animated-logo-text text-xl tracking-wider filter drop-shadow-[0_0_12px_rgba(96,165,250,0.4)] hover:brightness-110 transition-all">
+                    My Portfolio
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                <a href="#home" class="nav-link active hover:text-white transition-colors duration-200">Home</a>
+                <a href="#about" class="nav-link hover:text-white transition-colors duration-200">About</a>
+                <a href="#skills" class="nav-link hover:text-white transition-colors duration-200">Skills</a>
+                <a href="#web3" class="nav-link hover:text-white transition-colors duration-200">Web3 Contributions</a>
+                <a href="#contact" class="nav-link hover:text-white transition-colors duration-200">Contact</a>
+            </nav>
+
+            <!-- Social Links Quick Access -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="https://x.com/ArHida7" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full glass-card hover:text-sky-300 transition-all duration-300 hover:scale-110">
+                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                </a>
+                <a href="https://t.me/calllme_Zey" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full glass-card hover:text-sky-300 transition-all duration-300 hover:scale-110">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-slate-200 hover:text-sky-400 focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6 transition-transform duration-300" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div class="hidden md:hidden glass-nav absolute top-full left-0 w-full py-6 px-8 flex flex-col gap-5 border-t border-white/5 shadow-2xl transition-all duration-300 opacity-0 transform -translate-y-4" id="mobile-dropdown">
+            <a href="#home" class="mobile-nav-link text-slate-300 hover:text-sky-300 font-medium py-1 text-base tracking-wide border-b border-white/5">Home</a>
+            <a href="#about" class="mobile-nav-link text-slate-300 hover:text-sky-300 font-medium py-1 text-base tracking-wide border-b border-white/5">About Me</a>
+            <a href="#skills" class="mobile-nav-link text-slate-300 hover:text-sky-300 font-medium py-1 text-base tracking-wide border-b border-white/5">Skills & Tools</a>
+            <a href="#web3" class="mobile-nav-link text-slate-300 hover:text-sky-300 font-medium py-1 text-base tracking-wide border-b border-white/5">Web3 Contributions</a>
+            <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-sky-300 font-medium py-1 text-base">Contact</a>
+            
+            <div class="flex items-center gap-4 mt-2 pt-4 border-t border-white/5">
+                <a href="https://x.com/ArHida7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-sky-300 glass-card px-4 py-2 rounded-lg">
+                    <i data-lucide="twitter" class="w-3.5 h-3.5"></i> Twitter
+                </a>
+                <a href="https://t.me/calllme_Zey" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-sky-300 glass-card px-4 py-2 rounded-lg">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> Telegram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="min-h-[85vh] flex flex-col justify-center items-center py-12 md:py-24 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                <!-- Text Content (Cols 7) -->
+                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 order-2 lg:order-1">
+                    <!-- Tech Tag -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-sky-300 text-xs tracking-wider uppercase font-semibold border-sky-500/20 shadow-sm animate-bounce">
+                        <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+                        Web3 Contributor Portfolio
+                    </div>
+
+                    <!-- Main Name Title -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white">
+                        Hi, I am <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-ice-200 to-purpleAccent neon-text-glow animate-pulse">Zeyya</span>
+                    </h1>
+
+                    <!-- Dynamic Typing Text Subtitle -->
+                    <div class="h-8 flex items-center">
+                        <span class="text-lg sm:text-2xl font-medium tracking-wide text-ice-300" id="type-text"></span>
+                        <span class="w-[3px] h-6 bg-sky-400 ml-1.5 animate-[pulse_0.8s_infinite]"></span>
+                    </div>
+
+                    <!-- Intro Statement -->
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-light">
+                        I am Zeyya, a Web3 Enthusiast and Content Creator with deep experience in community moderation, seamless onboarding, active user support, and persistent community engagement.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto pt-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-center font-semibold bg-gradient-to-r from-sky-500 via-sky-400 to-purpleAccent text-white hover:opacity-95 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 neon-btn-glow flex items-center justify-center gap-2">
+                            Contact Me <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#web3" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-center font-semibold glass-panel border-white/10 hover:border-sky-400/50 text-sky-200 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                            View Web3 Journey <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social Handles -->
+                    <div class="flex items-center gap-5 pt-4 text-slate-400">
+                        <span class="text-xs tracking-wider uppercase font-medium">Connect:</span>
+                        <a href="https://x.com/ArHida7" target="_blank" rel="noopener noreferrer" class="hover:text-sky-300 transition-colors flex items-center gap-1.5 text-sm font-semibold glass-panel px-3.5 py-1.5 rounded-full border-white/5">
+                            <i data-lucide="twitter" class="w-4 h-4"></i> Twitter
+                        </a>
+                        <a href="https://discord.com/users/51092065009770713178" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors flex items-center gap-1.5 text-sm font-semibold glass-panel px-3.5 py-1.5 rounded-full border-white/5">
+                            <i data-lucide="message-square" class="w-4 h-4"></i> Discord
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Avatar Profile (Cols 5) -->
+                <div class="lg:col-span-5 flex justify-center items-center order-1 lg:order-2">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                        <!-- Decorative Sakura Orbit Glow Elements -->
+                        <div class="absolute -top-4 -right-4 w-12 h-12 text-sky-300 opacity-60 animate-bounce filter drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]">
+                            <svg viewBox="0 0 100 100" class="fill-current"><path d="M50 15 C45 35 25 35 25 50 C25 65 45 65 50 85 C55 65 75 65 75 50 C75 35 55 35 50 15 Z" /></svg>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-16 h-16 text-purpleAccent opacity-50 animate-pulse filter drop-shadow-[0_0_10px_rgba(157,78,221,0.5)]">
+                            <svg viewBox="0 0 100 100" class="fill-current"><path d="M50 15 C45 35 25 35 25 50 C25 65 45 65 50 85 C55 65 75 65 75 50 C75 35 55 35 50 15 Z" /></svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-sky-400 via-sky-300 to-purpleAccent rounded-full filter blur-3xl opacity-25 animate-pulse"></div>
+                        <div class="absolute -inset-2 bg-gradient-to-r from-sky-300/30 via-transparent to-purpleAccent/30 rounded-full filter blur-xl opacity-35 animate-[spin_12s_linear_infinite]"></div>
+                        
+                        <!-- PFP Container with Interactive Morph and Glow Anim -->
+                        <div class="pfp-border w-full h-full overflow-hidden">
+                            <div class="w-full h-full rounded-full overflow-hidden border-4 border-navy-900 bg-navy-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/IMG-20260624-WA0077.jpg" 
+                                     alt="Zeyya Profile Picture" 
+                                     class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-xs text-sky-400/60 tracking-widest font-semibold uppercase">
+                <span>Scroll</span>
+                <div class="w-[18px] h-[30px] border-2 border-sky-400/30 rounded-full flex justify-center p-[2px]">
+                    <div class="w-[3px] h-[6px] bg-sky-400 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-24 reveal">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-sky-400 font-bold">Discover</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-ice-300">
+                    About Me
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-purpleAccent rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Left Column (Bio & Details) (Cols 6) -->
+                <div class="lg:col-span-6 flex flex-col justify-between space-y-8 glass-card p-8 sm:p-10 rounded-2xl">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-300 flex items-center gap-2">
+                            <i data-lucide="user" class="w-5 h-5 text-purpleAccent"></i> Personal Profile
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed font-light text-base sm:text-lg">
+                            I am Zeyya, a dedicated Web3 Enthusiast and Creative Content Creator. Over the years, I have established a strong presence in various decentralized projects by providing high-tier support, organizing dynamic events, and ensuring community integrity.
+                        </p>
+                    </div>
+
+                    <!-- Personal Meta List -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                        <div class="flex items-center gap-3.5">
+                            <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-300">
+                                <i data-lucide="user-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Full Name</p>
+                                <p class="text-sm font-semibold text-white">Zeyya</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5">
+                            <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-300">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Location</p>
+                                <p class="text-sm font-semibold text-white">Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5">
+                            <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-300">
+                                <i data-lucide="languages" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Languages</p>
+                                <p class="text-sm font-semibold text-white">Indonesia & English</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5">
+                            <div class="p-2.5 rounded-lg bg-sky-500/10 text-sky-300">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Timezone</p>
+                                <p class="text-sm font-semibold text-white">UTC +7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Mod Experience Detail) (Cols 6) -->
+                <div class="lg:col-span-6 glass-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-sky-300 flex items-center gap-2">
+                            <i data-lucide="shield" class="w-5 h-5 text-purpleAccent"></i> Professional Moderator Role
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            A track record of facilitating secure environments and serving as a bridge between users and the core development teams.
+                        </p>
+                        
+                        <!-- Moderation Tasks Checklist -->
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <div class="mt-1 p-1 rounded-full bg-sky-500/20 text-sky-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="text-sm text-slate-300 leading-relaxed">Welcomed and onboarded new members, ensuring they fully understand guidelines and the project’s vision.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="mt-1 p-1 rounded-full bg-sky-500/20 text-sky-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="text-sm text-slate-300 leading-relaxed">Monitored active channels daily to maintain a safe ecosystem by filtering spam, links, and scams.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="mt-1 p-1 rounded-full bg-sky-500/20 text-sky-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="text-sm text-slate-300 leading-relaxed">Assisted with inquiries and redirected members to offical docs and verified announcements.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="mt-1 p-1 rounded-full bg-sky-500/20 text-sky-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="text-sm text-slate-300 leading-relaxed">Collaborated with lead teams to handle virtual events and relay community feedback back to devs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-24 reveal">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-sky-400 font-bold">Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-ice-300">
+                    Skills & Web3 Tools
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-purpleAccent rounded-full"></div>
+            </div>
+
+            <!-- Grid Content of Skills -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Skill 1 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Community Moderation</h4>
+                    <p class="text-xs text-slate-400">Moderating chats, resolving conflicts, & preserving peace.</p>
+                </div>
+                <!-- Skill 2 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="milestone" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Community Management</h4>
+                    <p class="text-xs text-slate-400">Guiding user engagement and core campaign events.</p>
+                </div>
+                <!-- Skill 3 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Research</h4>
+                    <p class="text-xs text-slate-400">Analyzing projects, dynamics, and web3 models.</p>
+                </div>
+                <!-- Skill 4 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Content Creation</h4>
+                    <p class="text-xs text-slate-400">Authoring blogs, informative guides, and X posts.</p>
+                </div>
+                <!-- Skill 5 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="message-square-code" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Communication</h4>
+                    <p class="text-xs text-slate-400">Building relationships across multicultural users.</p>
+                </div>
+                <!-- Skill 6 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="hash" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Discord Management</h4>
+                    <p class="text-xs text-slate-400">Configuring channels, permissions, and security settings.</p>
+                </div>
+                <!-- Skill 7 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="send" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Telegram Management</h4>
+                    <p class="text-xs text-slate-400">Filtering spam and maintaining fluid discussion rooms.</p>
+                </div>
+                <!-- Skill 8 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="help-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">User Support</h4>
+                    <p class="text-xs text-slate-400">Handling tickets, guiding users, and explaining mechanics.</p>
+                </div>
+                <!-- Skill 9 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Basic Bot Commands</h4>
+                    <p class="text-xs text-slate-400">Setting up Dyno, Mee6, Captcha, and verification gates.</p>
+                </div>
+                <!-- Skill 10 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="boxes" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Web3 Understanding</h4>
+                    <p class="text-xs text-slate-400">Basic knowledge of smart contracts, NFTs, DeFi, and DAOs.</p>
+                </div>
+                <!-- Skill 11 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Community Engagement</h4>
+                    <p class="text-xs text-slate-400">Running games, interactive quizzes, and engagement sessions.</p>
+                </div>
+                <!-- Skill 12 -->
+                <div class="glass-card p-6 rounded-xl flex flex-col items-center text-center space-y-3 group hover:scale-[1.03]">
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm sm:text-base text-white">Event Support</h4>
+                    <p class="text-xs text-slate-400">Coordinating AMAs, community poker nights, and contests.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WEB3 CONTRIBUTIONS SECTION -->
+        <section id="web3" class="py-24 reveal">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center space-y-3 mb-12">
+                <span class="text-xs uppercase tracking-widest text-sky-400 font-bold">Past Work</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-ice-300">
+                    Web3 Contributions
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-purpleAccent rounded-full"></div>
+            </div>
+
+            <!-- Categories Filter Buttons -->
+            <div class="flex justify-center items-center gap-4 mb-12">
+                <button class="px-6 py-2 rounded-full font-semibold transition-all duration-300 border border-sky-400/30 text-white bg-gradient-to-r from-sky-500 to-sky-400 shadow-md shadow-sky-500/10" id="filter-all" onclick="filterCategory('all')">
+                    All Projects
+                </button>
+                <button class="px-6 py-2 rounded-full font-semibold transition-all duration-300 border border-white/10 text-slate-300 hover:text-sky-300 hover:border-sky-400/30 bg-transparent" id="filter-og" onclick="filterCategory('og')">
+                    OG Projects
+                </button>
+                <button class="px-6 py-2 rounded-full font-semibold transition-all duration-300 border border-white/10 text-slate-300 hover:text-sky-300 hover:border-sky-400/30 bg-transparent" id="filter-mod" onclick="filterCategory('mod')">
+                    Moderator
+                </button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="projects-grid">
+                
+                <!-- Project 1 (EthGas) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/ethgas.jpg" alt="EthGas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">EthGas</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Openverse) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/openverse.jpg" alt="Openverse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Openverse</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Soundness) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/soundness.jpg" alt="Soundness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Soundness</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (AGNT.hub) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/7f0a118b-86d7-4ed9-8949-f2604d5de9ae.png" alt="AGNT.hub" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">AGNT.hub</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 (Presens Network) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/presens.jpg" alt="Presens Network" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb620040400?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Presens Network</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 (Fuglys) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/fuglys.png" alt="Fuglys" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Fuglys</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 (POD Network) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/pod.jpg" alt="POD Network" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">POD Network</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 (Eldora) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/eld.png" alt="Eldora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Eldora</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 (Melody) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/melody.jpg" alt="Melody" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Melody</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 (Fast Protocol) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="og">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/fast.png" alt="Fast Protocol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-og">OG Project</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Fast Protocol</h4>
+                            <p class="text-xs text-sky-400/80 font-medium">Role: OG Contributor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11 (Asterion) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="mod">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/asterion.jpg" alt="Asterion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-mod">Moderator</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Asterion</h4>
+                            <p class="text-xs text-purple-300 font-medium">Role: Moderator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12 (DuragDoge) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="mod">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/photo_2026-06-16_10-08-16.jpg" alt="DuragDoge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-mod">Moderator</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">DuragDoge</h4>
+                            <p class="text-xs text-purple-300 font-medium">Role: Moderator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 13 (Xmooney) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group project-card" data-category="mod">
+                    <div class="relative aspect-video w-full overflow-hidden bg-navy-900 border-b border-white/5">
+                        <img src="https://raw.githubusercontent.com/hendroah/Zeyya-Portofolio-/main/xmooney.jpg" alt="Xmooney" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&auto=format&fit=crop&q=60';">
+                        <span class="absolute top-3 right-3 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full tag-glow-mod">Moderator</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-grow">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">Xmooney</h4>
+                            <p class="text-xs text-purple-300 font-medium">Role: Moderator</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- QUOTE SECTION -->
+        <section class="py-16 reveal">
+            <div class="max-w-4xl mx-auto glass-panel p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden">
+                <!-- Background Sakura Silhouette SVG behind quote -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sky-400/5 pointer-events-none w-72 h-72">
+                    <svg viewBox="0 0 100 100" class="fill-current"><path d="M50 15 C45 35 25 35 25 50 C25 65 45 65 50 85 C55 65 75 65 75 50 C75 35 55 35 50 15 Z" /></svg>
+                </div>
+
+                <div class="space-y-6 relative z-10">
+                    <i data-lucide="quote" class="w-12 h-12 text-sky-400 opacity-60 mx-auto filter drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]"></i>
+                    <p class="text-xl sm:text-2xl font-medium tracking-wide text-slate-100 leading-relaxed italic">
+                        "Building communities is not just about growth, it's about creating a place where people belong."
+                    </p>
+                    <div class="flex items-center justify-center gap-2">
+                        <div class="w-6 h-[1px] bg-sky-400/50"></div>
+                        <span class="text-xs uppercase tracking-widest font-bold text-sky-300">Zeyya</span>
+                        <div class="w-6 h-[1px] bg-sky-400/50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 reveal">
+            <!-- Header Section -->
+            <div class="flex flex-col items-center text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-sky-400 font-bold">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-ice-300">
+                    Contact Me
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-purpleAccent rounded-full"></div>
+            </div>
+
+            <!-- Contact Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                
+                <!-- Email/Gmail Card -->
+                <a href="mailto:arifahzizi77@gmail.com" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-full bg-sky-500/10 text-sky-300 flex items-center justify-center group-hover:bg-sky-500/20 transition-all duration-300 mb-5 relative">
+                        <div class="absolute inset-0 bg-sky-400 rounded-full opacity-0 group-hover:opacity-10 animate-ping"></div>
+                        <i data-lucide="mail" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">Gmail</span>
+                    <h4 class="text-sm font-bold text-white mt-1 group-hover:text-sky-300 transition-colors break-all">arifahzizi77@gmail.com</h4>
+                    <p class="text-xs text-slate-400 mt-2 font-light">Kirim surel/email untuk berkolaborasi.</p>
+                    <div class="mt-5 flex items-center gap-1 text-[11px] text-sky-400 font-semibold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                        Kirim Email <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+
+                <!-- Telegram Card -->
+                <a href="https://t.me/calllme_Zey" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-full bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all duration-300 mb-5 relative">
+                        <div class="absolute inset-0 bg-sky-400 rounded-full opacity-0 group-hover:opacity-10 animate-ping"></div>
+                        <i data-lucide="send" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">Telegram</span>
+                    <h4 class="text-sm font-bold text-white mt-1 group-hover:text-sky-300 transition-colors">@calllme_Zey</h4>
+                    <p class="text-xs text-slate-400 mt-2 font-light">Kirim pesan instan secara langsung.</p>
+                    <div class="mt-5 flex items-center gap-1 text-[11px] text-sky-400 font-semibold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                        Chat Sekarang <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+
+                <!-- Twitter / X Card -->
+                <a href="https://x.com/ArHida7" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-full bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-all duration-300 mb-5 relative">
+                        <div class="absolute inset-0 bg-sky-400 rounded-full opacity-0 group-hover:opacity-10 animate-ping"></div>
+                        <i data-lucide="twitter" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">X / Twitter</span>
+                    <h4 class="text-sm font-bold text-white mt-1 group-hover:text-sky-300 transition-colors">@ArHida7</h4>
+                    <p class="text-xs text-slate-400 mt-2 font-light">Kirim DM atau sebut akun saya!</p>
+                    <div class="mt-5 flex items-center gap-1 text-[11px] text-sky-400 font-semibold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                        Kirim Pesan <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+
+                <!-- Discord Card -->
+                <a href="https://discord.com/users/51092065009770713178" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 text-purple-300 flex items-center justify-center group-hover:bg-purple-500/20 transition-all duration-300 mb-5 relative">
+                        <div class="absolute inset-0 bg-purple-400 rounded-full opacity-0 group-hover:opacity-10 animate-ping"></div>
+                        <i data-lucide="message-square" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold">Discord</span>
+                    <h4 class="text-sm font-bold text-white mt-1 group-hover:text-purple-300 transition-colors">Profil Discord</h4>
+                    <p class="text-xs text-slate-400 mt-2 font-light">Kunjungi profil & kirim permintaan pertemanan.</p>
+                    <div class="mt-5 flex items-center gap-1 text-[11px] text-purple-300 font-semibold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                        Buka Discord <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-10 mt-16 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-tr from-sky-400 to-purpleAccent p-[1px]">
+                    <div class="w-full h-full bg-navy-900 rounded-full flex items-center justify-center">
+                        <span class="text-xs font-bold text-sky-300">Z</span>
+                    </div>
+                </div>
+                <span class="font-bold text-sm tracking-wide text-slate-200">Zeyya</span>
+            </div>
+            
+            <p class="text-xs text-slate-500 font-light text-center md:text-left">
+                &copy; 2026 Zeyya. Web3 Portfolio. Crafted with elegance. All rights reserved.
+            </p>
+
+            <!-- Back to top -->
+            <a href="#home" class="p-2.5 rounded-xl glass-card hover:text-sky-300 transition-all text-slate-400" aria-label="Scroll to top">
+                <i data-lucide="arrow-up" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Copy to Clipboard Success Modal Toast (Custom instead of alert) -->
+    <div id="toast" class="fixed bottom-6 right-6 glass-panel py-3.5 px-6 rounded-xl border-sky-400/30 flex items-center gap-3 shadow-2xl transition-all duration-500 transform translate-y-24 opacity-0 z-50">
+        <div class="w-6 h-6 rounded-full bg-sky-500/20 text-sky-300 flex items-center justify-center">
+            <i data-lucide="check" class="w-4 h-4"></i>
+        </div>
+        <div>
+            <p class="text-sm font-semibold text-white">Tautan Disalin!</p>
+            <p class="text-xs text-slate-400 font-light">Tautan berhasil disimpan ke papan klip.</p>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Start Lucide Icons
+        lucide.createIcons();
+
+        // 1. Loading Screen Removal on window load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+            }, 1000);
+        });
+
+        // 2. Sakura Petals & Floating Glowing Particles on Canvas
+        const canvas = document.getElementById('sakura-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Sakura Petal Particle Class
+        class SakuraPetal {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * -height - 20;
+                this.size = Math.random() * 8 + 6;
+                this.speedY = Math.random() * 1.2 + 0.8;
+                this.speedX = Math.random() * 1.5 - 0.5;
+                this.angle = Math.random() * 360;
+                this.spinSpeed = Math.random() * 2 - 1;
+                this.opacity = Math.random() * 0.4 + 0.4;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.angle += this.spinSpeed;
+
+                // reset if out of screen
+                if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.angle * Math.PI) / 180);
+                
+                // Drawing Sakura Soft Petal shape (Feminine Web3 Soft Blue glow)
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-this.size, -this.size / 2, -this.size, this.size, 0, this.size * 1.5);
+                ctx.bezierCurveTo(this.size, this.size, this.size, -this.size / 2, 0, 0);
+                
+                // Color Gradient: Sky Blue to Soft Ice Blue
+                const grad = ctx.createLinearGradient(0, 0, 0, this.size * 1.5);
+                grad.addColorStop(0, `rgba(186, 230, 253, ${this.opacity})`); // Ice blue
+                grad.addColorStop(1, `rgba(96, 165, 250, ${this.opacity * 0.7})`); // Sky Blue glow
+                
+                ctx.fillStyle = grad;
+                ctx.shadowColor = 'rgba(96, 165, 250, 0.4)';
+                ctx.shadowBlur = 6;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // Star Dust Particle Class (Glowing floating Web3 vibe)
+        class GlowParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2.5 + 0.8;
+                this.speedY = Math.random() * -0.3 - 0.1; // Float slowly upwards
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.fadeRate = Math.random() * 0.005 + 0.002;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.opacity -= this.fadeRate;
+
+                if (this.opacity <= 0 || this.y < -10 || this.x < -10 || this.x > width + 10) {
+                    this.reset();
+                    this.y = height + 10; // spawn back at bottom
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(147, 197, 253, ${this.opacity})`; // Neon blue glow tone
+                ctx.shadowColor = 'rgba(96, 165, 250, 0.8)';
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const particles = [];
+        const maxSakuras = 35;
+        const maxGlows = 40;
+
+        for (let i = 0; i < maxSakuras; i++) {
+            particles.push(new SakuraPetal());
+        }
+        for (let i = 0; i < maxGlows; i++) {
+            particles.push(new GlowParticle());
+        }
+
+        function animateScene() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateScene);
+        }
+
+        // Start Canvas loop once ready
+        window.addEventListener('load', () => {
+            animateScene();
+        });
+
+
+        // 3. Animated Typing Text Logic (Hero Section)
+        const phrases = [
+            "Web3 Enthusiast",
+            "Moderator Advocate",
+            "Community Strategist",
+            "Content Creator"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typeTarget = document.getElementById('type-text');
+
+        function handleTyping() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                typeTarget.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typeTarget.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typingSpeed = 100;
+            if (isDeleting) {
+                typingSpeed /= 2; // Delete faster
+            }
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typingSpeed = 2000; // Pause at full phrase
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next
+            }
+
+            setTimeout(handleTyping, typingSpeed);
+        }
+
+        // Trigger typing init
+        setTimeout(handleTyping, 1200);
+
+
+        // 4. Navbar active highlighting on scroll + Scroll Reveal
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        const revealElements = document.querySelectorAll('.reveal');
+
+        function checkElementsInViewport() {
+            // Highlighting Nav Links
+            let currentActiveSectionId = '';
+            sections.forEach(section => {
+                const top = window.scrollY;
+                const offset = section.offsetTop - 150;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    currentActiveSectionId = id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentActiveSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll Reveal implementation
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < window.innerHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkElementsInViewport);
+        // Run once at loading to reveal elements already in view
+        setTimeout(checkElementsInViewport, 1100);
+
+
+        // 5. Mobile Nav Dropdown toggle logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileDropdown = document.getElementById('mobile-dropdown');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isHidden = mobileDropdown.classList.contains('hidden');
+            if (isHidden) {
+                mobileDropdown.classList.remove('hidden');
+                // Trigger transitions
+                setTimeout(() => {
+                    mobileDropdown.classList.remove('opacity-0', '-translate-y-4');
+                    mobileDropdown.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
+                menuIcon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+            } else {
+                mobileDropdown.classList.remove('opacity-100', 'translate-y-0');
+                mobileDropdown.classList.add('opacity-0', '-translate-y-4');
+                setTimeout(() => {
+                    mobileDropdown.classList.add('hidden');
+                }, 300);
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+        });
+
+        // Close dropdown on mobile nav item click
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDropdown.classList.remove('opacity-100', 'translate-y-0');
+                mobileDropdown.classList.add('opacity-0', '-translate-y-4');
+                setTimeout(() => {
+                    mobileDropdown.classList.add('hidden');
+                }, 300);
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+
+        // 6. Web3 Project Filtering Logic
+        function filterCategory(category) {
+            const projectCards = document.querySelectorAll('.project-card');
+            const buttons = [
+                { el: document.getElementById('filter-all'), cat: 'all' },
+                { el: document.getElementById('filter-og'), cat: 'og' },
+                { el: document.getElementById('filter-mod'), cat: 'mod' }
+            ];
+
+            // Adjust button styling
+            buttons.forEach(btn => {
+                if (btn.cat === category) {
+                    btn.el.className = "px-6 py-2 rounded-full font-semibold transition-all duration-300 border border-sky-400/30 text-white bg-gradient-to-r from-sky-500 to-sky-400 shadow-md shadow-sky-500/10";
+                } else {
+                    btn.el.className = "px-6 py-2 rounded-full font-semibold transition-all duration-300 border border-white/10 text-slate-300 hover:text-sky-300 hover:border-sky-400/30 bg-transparent";
+                }
+            });
+
+            // Filter cards with scale animation
+            projectCards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
